@@ -2,6 +2,7 @@ import{ useState } from 'react';
 import './App.css';
 import MainMint from './MainMint';
 import NavBar from './NavBar';
+import SecondMint from './SecondMint.js';
 
 
 function App() {

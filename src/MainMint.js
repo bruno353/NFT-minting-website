@@ -69,8 +69,9 @@ const MaintMint = ({ accounts, setAccounts }) => {
       const address = await signer.getAddress();
       await setUserAddress(address);
       if(body.includes("@") && title !== '' && body.includes(".")){
-      console.log(accounts[0])}
-      setConfirmTrans(true)
+      console.log(accounts[0])
+      setConfirmTrans(true)}
+      
             /*
       const contract = new ethers.Contract(
         roboPunksNFTAddress,
