@@ -18,49 +18,20 @@ const NavBar = ({accounts, setAccounts}) => {
 
     return(
         
-        <Flex justify="space-between" align="center" padding="30px">
+        <Flex justify="center" align="center" padding="1px">
         
             {/*Left Side - Social Media Icons*/}
-            <Flex justify="space-around" width="40%" padding="75px">
+            <Flex justify="center" align='center' width="40%" padding="1px">
                 <Link href="https://www.facebook.com">
-                    <Image src={Facebook} boxSize="42px" margin="0 15px"/>
+                    <Image src={Facebook} boxSize="42px"/>
                 </Link>
                 <Link href="https://www.twitter.com">
-                    <Image src={Twitter} boxSize="42px" margin="0 15px"/>
+                    <Image src={Twitter} boxSize="42px"/>
                 </Link>
                 <Link href="https://www.gmail.com">
-                    <Image src={Email} boxSize="42px" margin="0 15px"/>
+                    <Image src={Email} boxSize="42px"/>
                 </Link>
             </Flex>
-
-            
-            {/*Right Side - Sections and Connect*/}
-            <Flex justify="space-between" align="center" padding="30px">
-                            {/*Connect*/}
-            { isConnected ? (
-                <Box margin="0 15px">Connected</Box>
-            ) : (
-                <Button 
-                backgroundColor="#008fd4"
-                borderRadius="15px"
-                boxShadow="0px 2px 2px 1px #0F0F0F"
-                color="white"
-                cursor="pointer"
-                fontFamily="inherit"
-                padding="15px"
-                margin="0 15px"
-                onClick={connectAccount}>Connect</Button>
-            ) }
-            <Box margin="0 15px">About</Box>
-            <Spacer />
-            <Box margin="0 15px">Mint</Box>
-            <Spacer />      
-            <Box margin="0 15px">Team</Box>
-            <Spacer />
-      
-
-
-        </Flex>
 </Flex>
 
 

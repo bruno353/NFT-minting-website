@@ -4,6 +4,9 @@ import { Box, Button, Flex, Input, Text } from "@chakra-ui/react";
 import roboPunksNFT from "./RoboPunksNFT.json";
 import { ConsoleSqlOutlined, LoadingOutlined } from '@ant-design/icons'
 import { Spin, Row, Col } from "antd";
+import logo from "./assets/background/trix_logo.png";
+import orb from "./assets/background/orbes_amarelo.png"
+
 var axios = require('axios');
 
 
@@ -151,20 +154,18 @@ const MaintMint = ({ accounts, setAccounts }) => {
     )
   }
   return (
-    <Flex justify="center" align="center" height="100vh" paddingBottom="350px">
+    <Flex justify="center" align="center" height="80vh" paddingBottom="1px">
       <Box width="1200px">
         <div>
-          <Text fontSize="48px" textShadow="0 5px #000000">
-            Trix Battle Tactics NFT
-          </Text>
+          <img src={logo} width="274px" height="122px"/>
+          <div><img src={orb} width="363px" height="363px"  style={{opacity: '1'}}/>
           <Text
-            fontSize="30px"
-            letterSpacing="-5.5%"
-            fontFamily="VT323"
-            textShadow="0 2px 2px #000000"
+            fontSize="18px"
+            fontFamily='Poppins, sans-serif;'
           >
-            Minte o NFT com a sua metamask.
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
           </Text>
+          </div>
         </div>
 
         {isConnected ? (
@@ -250,17 +251,40 @@ const MaintMint = ({ accounts, setAccounts }) => {
             </Button>
           </div>
         ) : (
-          <Text
-            marginTop="70px"
-            fontSize="30px"
-            letterSpacing="5.5%"
-            fontFamily="VT323"
-            textShadow="0 3px #000000"
-            color="#008fd4"
-          >
-            Connect your wallet to mint.
-          </Text>
+          <div>
+          <Button 
+          backgroundColor="#1EE0FF"
+          borderRadius="15px"
+          boxShadow={"0px 3px 6px #00000029;"}
+          border={"2px solid #1EE0FF;"}
+          color="white"
+          cursor="pointer"
+          padding="15px"
+          margin="0 15px"
+          width={"326px"}
+          fontSize='21px'
+          fontWeight={'900'}
+          fontFamily='Poppins, sans-serif;'
+          height={"66px"}
+          >CONECTAR CARTEIRA</Button>
+          <Button 
+          backgroundColor="transparent"
+          borderRadius="15px"
+          boxShadow={"0px 3px 6px #00000029;"}
+          border={"2px solid #1EE0FF;"}
+          color="white"
+          cursor="pointer"
+          padding="15px"
+          margin="0 15px"
+          width={"326px"}
+          fontSize='21px'
+          fontWeight={'600'}
+          fontFamily='Poppins, sans-serif;'
+          height={"66px"}
+          >CRIAR UMA CARTEIRA</Button>
+          </div>
         )}
+
       </Box>
     </Flex>
   );

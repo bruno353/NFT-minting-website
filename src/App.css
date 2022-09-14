@@ -5,6 +5,7 @@
   text-align: center;
   font-family: "Press Start 2P", "VT323";
   color: white;
+  margin-top: "88px";
 }
 
 * {
@@ -33,7 +34,7 @@ body {
   left: 0;
   right: 0;
   bottom: 0;
-  background-image: url("./assets/background/parallax-bg.gif");
+  background: transparent linear-gradient(180deg, #160830 0%, #4B1849 51%, #160830 100%) 0% 0% no-repeat padding-box;
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
