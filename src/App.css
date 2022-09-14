@@ -43,3 +43,17 @@ body {
  
 }
 
+#inputID::placeholder {
+  color: #fff;
+  opacity: 1;
+}
+
+#buttonID:hover {
+  background: #35408a;
+  border: 2px solid #35408a;
+}
+
+#buttonCancelar:hover {
+  background: black;
+  border: 2px solid black;
+}
