@@ -5,12 +5,13 @@ import roboPunksNFT from "./RoboPunksNFT.json";
 import { ConsoleSqlOutlined, LoadingOutlined } from '@ant-design/icons'
 import { Spin, Row, Col } from "antd";
 import logo from "./assets/background/trix_logo.png";
-import orb from "./assets/background/orbes_amarelo.png"
+import orb from "./assets/background/orbes_azul.png"
+import orbVioleta from "./assets/background/orbes_violeta.png"
 import ERC721ABI from "./ERC721ABI.json"
 
 var axios = require('axios');
 const web3Provider1 = new ethers.providers.JsonRpcProvider("https://eth-rinkeby.alchemyapi.io/v2/m8umOEv-BgiuBfFQJARY_V4gW3HORT1G")
-const contractAddress = "0x7A3ba1B544C0349A378471A248A7F75faC95c06f"
+const contractAddress = "0x73dFDaeBD27d1bC3C44daA573E8269a70A55D903"
 const contract = new ethers.Contract(contractAddress, ERC721ABI, web3Provider1);
 let contador;
 
@@ -26,6 +27,10 @@ const MaintMint = ({ accounts, setAccounts, proximo, setProximo }) => {
   const [tamanho, setTamanho] = useState("80vh")
   const [naoPossuiCarteira, setNaoPossuiCarteira] = useState(false)
   const [erroHandler, setErroHandler] = useState(false)
+  const [founderMintIsOver, setFounderMintIsOver] = useState(false)
+  const [orbName, setOrbName] = useState("ORBE GÊNESIS")
+  const [orbCategory, setOrbCategory] = useState(1)
+  const [quantidadeUSD, setQuantidadeUSD] = useState("")
 
     async function connectAccount(){
       if(window.ethereum) {
@@ -60,7 +65,12 @@ const MaintMint = ({ accounts, setAccounts, proximo, setProximo }) => {
     await axios(config)
     .then(function (response) {
       console.log(JSON.stringify(Number(response.data.result.hex)));
-      setNFTsMinted(2500 - Number(response.data.result.hex))
+      setNFTsMinted(25 - Number(response.data.result.hex))
+      if(Number(response.data.result.hex) == 25){
+        setFounderMintIsOver(true)
+        setOrbName("ORBE INTERDIMENSIONAL")
+        setOrbCategory(2)
+      }
       contador = 1
     })}
   }
@@ -73,7 +83,12 @@ const MaintMint = ({ accounts, setAccounts, proximo, setProximo }) => {
       category: category,
       uri: uri
     };
-    let nfts = 2500 - Number(id)
+    let nfts = 25 - Number(id)
+    if(Number(id) == 25){
+      setFounderMintIsOver(true)
+      setOrbName("ORBE INTERDIMENSIONAL")
+      setOrbCategory(2)
+    }
     setNFTsMinted(nfts)
   })
 
@@ -91,20 +106,18 @@ const MaintMint = ({ accounts, setAccounts, proximo, setProximo }) => {
     
     let cont;
     await axios(config).then(function (response) {
-      cont = Number(response.data.result.hex)
+     cont = Number(response.data.result.hex)
     })
 
-    if (cont <= 10) {
+    if (cont < 25) {
       if (naoPossuiCarteira == true){
         chamadaAPINoMetamask()
       }
-
-      else{chamadaAPI()}
+      if(naoPossuiCarteira == false){chamadaAPI()}
     }
-    else{
+    if(cont == 25){
       setErroHandler(true)
-    }
-  }
+    }}
 
   async function chamadaAPINoMetamask() {
     //e.preventDefault();
@@ -113,7 +126,8 @@ const MaintMint = ({ accounts, setAccounts, proximo, setProximo }) => {
     var data = JSON.stringify({
       "quantity": mintAmount.toString(),
       "name": title,
-      "email": body
+      "email": body,
+      "category": orbCategory
     });
     
     var config = {
@@ -153,7 +167,8 @@ const MaintMint = ({ accounts, setAccounts, proximo, setProximo }) => {
         "quantity": mintAmount.toString(),
         "metamask": address,
         "name": title,
-        "email": body
+        "email": body,
+        "category": orbCategory
       });
       
       var config = {
@@ -186,7 +201,12 @@ const MaintMint = ({ accounts, setAccounts, proximo, setProximo }) => {
   }
 
   async function handleMint() {
-    if (window.ethereum) {
+    if(founderMintIsOver){setQuantidadeUSD(`US$${mintAmount * 15}`)}
+    if(!founderMintIsOver){setQuantidadeUSD(`US$${mintAmount * 10}`)}
+    if(naoPossuiCarteira == true) {
+      setConfirmTrans(true)
+    }
+    if (window.ethereum && naoPossuiCarteira == false) {
       const provider = new ethers.providers.Web3Provider(window.ethereum);
       console.log(provider)
       const signer = provider.getSigner();
@@ -247,9 +267,9 @@ const MaintMint = ({ accounts, setAccounts, proximo, setProximo }) => {
     return (
       <Flex justify="center" align="center" height="100vh" paddingBottom="350px" lineHeight="50px" fontFamily={"Poppins, sans-serif;"}>
         <Box width="1200px">
-          <h1>Você irá realizar a mintagem de {mintAmount} TBT NFT(s) para a carteira {userAddress} na rede Polygon</h1>
+          <h1>Você irá realizar a mintagem de {mintAmount} NFT(s) {orbName} para a carteira {userAddress} na rede Polygon.</h1>
           <h1>Por favor, certifique-se de que inseriu um email válido para que possamos enviar a confirmação de compra do seu NFT e de como visualizá-lo.</h1>
-          <h2>Total de R$0,01</h2>
+          <h2>Total de {quantidadeUSD}</h2>
           <Button
           backgroundColor="red"
           borderRadius="15px"
@@ -296,11 +316,11 @@ const MaintMint = ({ accounts, setAccounts, proximo, setProximo }) => {
     if (confirmTrans == true && naoPossuiCarteira == true) {
       return (
         <Flex justify="center" align="center" height="100vh" paddingBottom="350px" lineHeight="50px" fontFamily={"Poppins, sans-serif;"}>
-          <Box width="1200px">
-            <h1>Você irá realizar a mintagem de {mintAmount} TBT NFT(s)</h1>
-            <h1>Criaremos uma carteira Polygon para você poder acessar seus NFTs</h1>
+          <Box width="1200px"> 
+            <h1>Você irá realizar a mintagem de {mintAmount} NFT(s) {orbName}</h1>
+            <h1>Criaremos uma carteira Polygon para você poder acessar seus NFTs.</h1>
             <h1>Por favor, certifique-se de que {body} é um email válido e de que apenas você tenha acesso, por ele enviaremos as informações de como acessar a sua nova carteira.</h1>
-            <h2>Total de R$0,01</h2>
+            <h2>Total de {quantidadeUSD}</h2>
             <Button
             backgroundColor="red"
             borderRadius="15px"
@@ -350,7 +370,9 @@ const MaintMint = ({ accounts, setAccounts, proximo, setProximo }) => {
       <Box width="1200px">
         <div>
           <img src={logo} width="274px" height="122px" marginBottom="-100px" paddingBottom="0" marginTop="100px"/>
-          <div><img src={orb}  width="350px" height="350px" marginBottom="0px"  paddingBottom="0px" marginTop="-50px" style={{opacity: '1'}}/>
+          <div>
+          {founderMintIsOver ? (<img src={orb}  width="350px" height="350px" marginBottom="0px"  paddingBottom="0px" marginTop="-50px" style={{opacity: '1'}}/>) : 
+          (<img src={orbVioleta}  width="350px" height="350px" marginBottom="0px"  paddingBottom="0px" marginTop="-50px" style={{opacity: '1'}}/>)}
           {isConnected || naoPossuiCarteira ? (
           <div>
             <Text
@@ -362,7 +384,7 @@ const MaintMint = ({ accounts, setAccounts, proximo, setProximo }) => {
               paddingBottom="0px"
               marginTop="-40px"
             >
-              ORBE BOM
+              {founderMintIsOver ? (<p>ORBE INTERDIMENSIONAL</p>) : (<p>ORBE GÊNESIS</p>)}
             </Text>
             <Text
               fontSize="16px"
@@ -370,15 +392,30 @@ const MaintMint = ({ accounts, setAccounts, proximo, setProximo }) => {
               marginBottom="30px"
               marginTop="0px"
             >
-              R$200,00
+              {founderMintIsOver ? (<p>US$ 15,00</p>) : (<p>US$ 10,00</p>)}
             </Text>
           </div>
           ):(
+            
           <Text
             fontSize="18px"
             fontFamily='Poppins, sans-serif;'
           >
-            Faltam {NFTminted} NFTs founders a serem mintados.
+            {founderMintIsOver? (
+
+            <p>Adquira uma orbe coleção interdimensional. 
+                A Orbe contém um personagem, que será revelado no evento de abertura, com emote e ícone dentro do jogo.
+                
+                
+            </p>) : (
+
+              <p>Adquira uma orbe exclusiva e limitada da coleção Gênesis. 
+                A Orbe contém um personagem, que será revelado no evento de abertura, emote e ícone exclusivos dentro do jogo, 
+                além da possibilidade de fazer missões exclusivas. <br /> Faltam {NFTminted} NFTs founders a serem mintados.
+              </p>
+
+            )}
+            
           </Text>)
           }
 
