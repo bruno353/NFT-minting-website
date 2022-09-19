@@ -24,7 +24,7 @@ const MaintMint = ({ accounts, setAccounts, proximo, setProximo }) => {
   const [title, setTitle] = useState('');
   const [body, setBody] = useState('');
   const [NFTminted, setNFTsMinted] = useState("Na");
-  const [tamanho, setTamanho] = useState("80vh")
+  const [tamanho, setTamanho] = useState("90vh")
   const [naoPossuiCarteira, setNaoPossuiCarteira] = useState(false)
   const [erroHandler, setErroHandler] = useState(false)
   const [founderMintIsOver, setFounderMintIsOver] = useState(false)
@@ -38,14 +38,14 @@ const MaintMint = ({ accounts, setAccounts, proximo, setProximo }) => {
               method: "eth_requestAccounts",
           });
       setAccounts(accounts);
-      setTamanho("100vh")
+      setTamanho("200vh")
       setProximo(true)
       }
 
   }
 
   async function criarCarteira() {
-    setTamanho("100vh")
+    setTamanho("130vh")
     setProximo(true)
     setNaoPossuiCarteira(true)
   }
@@ -94,6 +94,8 @@ const MaintMint = ({ accounts, setAccounts, proximo, setProximo }) => {
 
   async function handleConfirmacaoCompra() {
     setIsMinting(true)
+
+    //primeira chamada para verificar se ainda existem nfts:
     var config = {
       method: 'post',
       url: 'https://parseapi.back4app.com/functions/nftsmintados',
@@ -109,6 +111,8 @@ const MaintMint = ({ accounts, setAccounts, proximo, setProximo }) => {
      cont = Number(response.data.result.hex)
     })
 
+
+    
     if (cont < 25) {
       if (naoPossuiCarteira == true){
         chamadaAPINoMetamask()
@@ -163,6 +167,29 @@ const MaintMint = ({ accounts, setAccounts, proximo, setProximo }) => {
       const signer = provider.getSigner();
       const address = await signer.getAddress();
 
+          //segunda chamada para ver se o address não possui mais que x quantidade de nfts:
+    var data2 = JSON.stringify({
+      "address": "0x079DEe37766f5336DB2D92312129fD42B6172138"
+    });
+    var config2 = {
+      method: 'post',
+      url: 'https://parseapi.back4app.com/functions/NFTsByAddress',
+      headers: { 
+        'X-Parse-Application-Id': 'cACXAALjoAERRdB7jMAPSvMwBAfv7MC2yebDYxSw', 
+        'X-Parse-REST-API-Key': 'iDcYvliNQkyCRm0L52ca2ghI85cyVNa9zAYI6Xus', 
+        'Content-Type': 'application/json'
+      },
+      data: data2
+    };
+    
+    let cont2;
+    await axios(config2).then(function (response) {
+     cont2 = Number(response.data.result.hex)
+     console.log(cont2 + " <- aquii")
+    })
+
+    if ((cont2 + mintAmount) < 100) {
+
       var data = JSON.stringify({
         "quantity": mintAmount.toString(),
         "metamask": address,
@@ -192,6 +219,7 @@ const MaintMint = ({ accounts, setAccounts, proximo, setProximo }) => {
       });
 
     }
+    }
 
 
   }
@@ -203,6 +231,13 @@ const MaintMint = ({ accounts, setAccounts, proximo, setProximo }) => {
   async function handleMint() {
     if(founderMintIsOver){setQuantidadeUSD(`US$${mintAmount * 15}`)}
     if(!founderMintIsOver){setQuantidadeUSD(`US$${mintAmount * 10}`)}
+    if(body == '' || title == ''){
+      alert("Por favor, preencha todos os campos")
+      return
+     }
+     if(body.includes("@") == false || body.includes(".") == false){
+      alert("Por favor, ensira um e-mail válido")
+     }
     if(naoPossuiCarteira == true) {
       setConfirmTrans(true)
     }
@@ -231,12 +266,8 @@ const MaintMint = ({ accounts, setAccounts, proximo, setProximo }) => {
         console.log("error: ", err);
       }
       */
-     if(body.includes("@") == false || body.includes(".") == false){
-      alert("Por favor, ensira um e-mail válido")
-     }
-     if(body == '' || title == ''){
-      alert("Por favor, preencha todos os campos")
-     }
+
+
     }
   }
 
@@ -265,7 +296,7 @@ const MaintMint = ({ accounts, setAccounts, proximo, setProximo }) => {
 
   if (confirmTrans == true && naoPossuiCarteira == false) {
     return (
-      <Flex justify="center" align="center" height="100vh" paddingBottom="350px" lineHeight="50px" fontFamily={"Poppins, sans-serif;"}>
+      <Flex justify="center" align="center" height="120vh" paddingBottom="350px" lineHeight="50px" fontFamily={"Poppins, sans-serif;"}>
         <Box width="1200px">
           <h1>Você irá realizar a mintagem de {mintAmount} NFT(s) {orbName} para a carteira {userAddress} na rede Polygon.</h1>
           <h1>Por favor, certifique-se de que inseriu um email válido para que possamos enviar a confirmação de compra do seu NFT e de como visualizá-lo.</h1>
@@ -315,7 +346,7 @@ const MaintMint = ({ accounts, setAccounts, proximo, setProximo }) => {
 
     if (confirmTrans == true && naoPossuiCarteira == true) {
       return (
-        <Flex justify="center" align="center" height="100vh" paddingBottom="350px" lineHeight="50px" fontFamily={"Poppins, sans-serif;"}>
+        <Flex justify="center" align="center" height="120vh" paddingBottom="350px" lineHeight="50px" fontFamily={"Poppins, sans-serif;"}>
           <Box width="1200px"> 
             <h1>Você irá realizar a mintagem de {mintAmount} NFT(s) {orbName}</h1>
             <h1>Criaremos uma carteira Polygon para você poder acessar seus NFTs.</h1>
@@ -367,12 +398,12 @@ const MaintMint = ({ accounts, setAccounts, proximo, setProximo }) => {
 
   return (
     <Flex justify="center" align="center" height={tamanho} paddingBottom="1px">
-      <Box width="1200px">
+      <Box id={"box"}>
         <div>
-          <img src={logo} width="274px" height="122px" marginBottom="-100px" paddingBottom="0" marginTop="100px"/>
+          <img src={logo} id={"oi"}/>
           <div>
-          {founderMintIsOver ? (<img src={orb}  width="350px" height="350px" marginBottom="0px"  paddingBottom="0px" marginTop="-50px" style={{opacity: '1'}}/>) : 
-          (<img src={orbVioleta}  width="350px" height="350px" marginBottom="0px"  paddingBottom="0px" marginTop="-50px" style={{opacity: '1'}}/>)}
+          {founderMintIsOver ? (<img src={orb} id={"orbs"}/>) : 
+          (<img src={orbVioleta}  id={"orbs"}/>)}
           {isConnected || naoPossuiCarteira ? (
           <div>
             <Text
@@ -400,6 +431,7 @@ const MaintMint = ({ accounts, setAccounts, proximo, setProximo }) => {
           <Text
             fontSize="18px"
             fontFamily='Poppins, sans-serif;'
+            marginTop='-4%'
           >
             {founderMintIsOver? (
 
@@ -409,9 +441,9 @@ const MaintMint = ({ accounts, setAccounts, proximo, setProximo }) => {
                 
             </p>) : (
 
-              <p>Adquira uma orbe exclusiva e limitada da coleção Gênesis. 
+              <p style={{"margin-bottom":"35px"}}>Adquira uma orbe exclusiva e limitada da coleção Gênesis. 
                 A Orbe contém um personagem, que será revelado no evento de abertura, emote e ícone exclusivos dentro do jogo, 
-                além da possibilidade de fazer missões exclusivas. <br /> Faltam {NFTminted} NFTs founders a serem mintados.
+                além da possibilidade de fazer missões exclusivas. <br /> <br /> Faltam {NFTminted} NFTs founders a serem mintados.
               </p>
 
             )}
@@ -554,38 +586,13 @@ const MaintMint = ({ accounts, setAccounts, proximo, setProximo }) => {
             </Button>
           </div>
         ) : (
-          <div style={{marginTop: "100px", marginBottom: "-125px"}}>
+          <div style={{marginTop: "4%", marginBottom: "-1rem", width: "100%"}}>
           <Button 
-          backgroundColor="#1EE0FF"
-          borderRadius="15px"
-          boxShadow={"0px 3px 6px #00000029;"}
-          border={"2px solid #1EE0FF;"}
-          color="white"
-          cursor="pointer"
-          padding="15px"
-          width={"326px"}
-          id={"buttonID"}
-          fontSize='21px'
-          fontWeight={'900'}
-          fontFamily='Poppins, sans-serif;'
-          height={"66px"}
+          id={"buttonID2"}
           onClick={connectAccount}
           >CONECTAR CARTEIRA</Button>
           <Button 
-          backgroundColor="transparent"
-          borderRadius="15px"
-          boxShadow={"0px 3px 6px #00000029;"}
-          border={"2px solid #1EE0FF;"}
-          color="white"
-          cursor="pointer"
-          marginLeft={"15px"}
-          padding="15px"
           id={"buttonID"}
-          width={"326px"}
-          fontSize='21px'
-          fontWeight={'600'}
-          fontFamily='Poppins, sans-serif;'
-          height={"66px"}
           onClick={criarCarteira}
           >CRIAR UMA CARTEIRA</Button>
           </div>

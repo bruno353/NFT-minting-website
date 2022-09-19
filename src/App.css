@@ -48,12 +48,141 @@ body {
   opacity: 1;
 }
 
-#buttonID:hover {
-  background: #35408a;
-  border: 2px solid #35408a;
-}
-
 #buttonCancelar:hover {
   background: black;
   border: 2px solid black;
 }
+
+@media only screen and (max-width: 600px) {
+  #oi {
+    width: 200px;  
+    height: 100px;
+    marginBottom: -100px; 
+    paddingBottom: 0;
+    marginTop: 100px;
+  }
+  #box {
+    width: 300px;
+  }
+  #orbs {
+    width: 230px;
+    height: 230px; 
+    marginBottom: 0px; 
+    paddingBottom: 0px;
+    marginTop: -50px; 
+    opacity: 100%;
+  }
+  #page {
+    overflow: scroll;
+    height: 700px; 
+    justify-content: center;
+    align: center;
+  }
+  #buttonID:hover {
+    background: #35408a;
+    border: 2px solid #35408a;
+  }
+  #buttonID2:hover {
+    background: #35408a;
+    border: 2px solid #35408a;
+  }
+  #buttonID {
+    background: transparent;
+    border-radius: 15px;
+    box-shadow: 0px 3px 6px #00000029;
+    border: 2px solid #1EE0FF;
+    color: white;
+    cursor: pointer;
+    margin-left: 15px;
+    padding: 15px;
+    width: 45%;
+    font-size: 70%;
+    font-weight: 900;
+    font-family: Poppins, sans-serif;
+    height: 50%;
+  }
+
+  #buttonID2 {
+    background: #1EE0FF;
+    border-radius: 15px;
+    box-shadow: 0px 3px 6px #00000029;
+    border: 2px solid #1EE0FF;
+    color: white;
+    cursor: pointer;
+    margin-left: 15px;
+    padding: 15px;
+    width: 45%;
+    font-size: 70%;
+    font-weight: 900;
+    font-family: Poppins, sans-serif;
+    height: 50%;
+  }
+}
+
+@media only screen and (min-width: 1000px) {
+  #oi {
+    width: 20%;  
+    height: 20%;
+    marginBottom: -100px; 
+    paddingBottom: 0;
+    marginTop: 100px;
+  }
+  #box {
+    width: 1200px;
+  }
+  #orbs {
+    width: 350px;
+    height: 350px; 
+    marginBottom: 0px; 
+    paddingBottom: 0px;
+    marginTop: -50px; 
+    opacity: 1;
+  }
+  #page {
+    overflow: scroll;
+    height: 1600px; 
+    justify-content: center;
+    align: center;
+  }
+  #buttonID:hover {
+    background: #35408a;
+    border: 2px solid #35408a;
+  }
+  #buttonID2:hover {
+    background: #35408a;
+    border: 2px solid #35408a;
+  }
+
+  #buttonID {
+    background: transparent;
+    border-radius: 15px;
+    box-shadow: 0px 3px 6px #00000029;
+    border: 2px solid #1EE0FF;
+    color: white;
+    cursor: pointer;
+    margin-left: 15px;
+    padding: 15px;
+    width: 25%;
+    font-size: 100%;
+    font-weight: 900;
+    font-family: Poppins, sans-serif;
+    height: 50%;
+  }
+
+  #buttonID2 {
+    background: #1EE0FF;
+    border-radius: 15px;
+    box-shadow: 0px 3px 6px #00000029;
+    border: 2px solid #1EE0FF;
+    color: white;
+    cursor: pointer;
+    margin-left: 15px;
+    padding: 15px;
+    width: 25%;
+    font-size: 100%;
+    font-weight: 900;
+    font-family: Poppins, sans-serif;
+    height: 50%;
+  }
+}
+

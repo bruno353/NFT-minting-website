@@ -25,30 +25,30 @@ const NavBar = ({accounts, setAccounts}) => {
 
     return(
         
-        <Flex justify="center" align="center" padding="1px" marginTop="120px">
+        <Flex justify="center" align="center" padding="1px" marginTop="1%">
         
             {/*Left Side - Social Media Icons*/}
             <Flex justify="center" align='center' width="40%" padding="1px">
-                <Link href="https://www.linkedin.com/company/brais-games/?originalSubdomain=br">
-                    <Image src={Linkedin} width="33px" height="24px" marginLeft="15px" marginRight="15px"/>
+                <Link href="https://www.linkedin.com/company/brais-games/?originalSubdomain=br" target={"_blank"}>
+                    <Image src={Linkedin} width="20px" height="20px"  marginLeft="15px" marginRight="15px"/>
                 </Link>
-                <Link href="https://discord.com/">
-                    <Image src={Discord} width="33px" height="24px" marginLeft="15px" marginRight="15px"/>
+                <Link href="https://discord.com/" target={"_blank"}>
+                    <Image src={Discord} width="20px" height="20px" marginLeft="15px" marginRight="15px"/>
                 </Link>
-                <Link href="https://telegram.com/">
-                    <Image src={Telegram} width="33px" height="24px"marginLeft="15px" marginRight="15px"/>
+                <Link href="https://telegram.com/" target={"_blank"}>
+                    <Image src={Telegram} width="20px" height="20px" marginLeft="15px" marginRight="15px"/>
                 </Link>
-                <Link href="https://twitter.com/trixbtgame">
-                    <Image src={Twitter} width="33px" height="24px" marginLeft="15px" marginRight="15px"/>
+                <Link href="https://twitter.com/trixbtgame" target={"_blank"}>
+                    <Image src={Twitter} width="20px" height="20px" marginLeft="15px" marginRight="15px"/>
                 </Link>
-                <Link href="https://www.instagram.com/trixbtgame">
-                    <Image src={Instagram} width="33px" height="24px" marginLeft="15px" marginRight="15px"/>
+                <Link href="https://www.instagram.com/trixbtgame" target={"_blank"}>
+                    <Image src={Instagram} width="20px" height="20px" marginLeft="15px" marginRight="15px"/>
                 </Link>
-                <Link href="https://www.facebook.com/">
-                    <Image src={Facebook} width="33px" height="24px" marginLeft="15px" marginRight="15px"/>
+                <Link href="https://www.facebook.com/" target={"_blank"}>
+                    <Image src={Facebook} width="20px" height="20px" marginLeft="15px" marginRight="15px"/>
                 </Link>
-                <Link href="https://www.youtube.com/channel/UCeDkcq0R-wPezFKLh06z2mA">
-                    <Image src={Youtube} width="33px" height="24px" marginLeft="15px" marginRight="15px"/>
+                <Link href="https://www.youtube.com/channel/UCeDkcq0R-wPezFKLh06z2mA" target={"_blank"}>
+                    <Image src={Youtube} width="20px" height="20px" marginLeft="15px" marginRight="15px"/>
                 </Link>
 
             </Flex>
