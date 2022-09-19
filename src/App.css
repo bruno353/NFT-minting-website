@@ -43,40 +43,127 @@ body {
  
 }
 
-#inputID::placeholder {
-  color: #fff;
-  opacity: 1;
-}
 
-#buttonCancelar:hover {
-  background: black;
-  border: 2px solid black;
-}
+
+
 
 @media only screen and (max-width: 600px) {
+
+  #buttonCancelar:hover {
+    background: black;
+    border: 2px solid black;
+  }
+
   #oi {
     width: 200px;  
     height: 100px;
-    marginBottom: -100px; 
-    paddingBottom: 0;
-    marginTop: 100px;
+    margin-bottom: -100px; 
+    padding-bottom: 0;
+    margin-top: 100px;
   }
+
+  #buttonPlus {
+    background-color: #7F33A8;
+    border-radius: 15px;
+    box-shadow: 0px 3px 6px #00000029;
+    border: 2px solid #7F33A8;
+    color: #3C1153;
+    font-weight: 900;
+    cursor: pointer;
+    font-size: 50px;
+    font-family: Poppins, sans-serif;
+    height: 55px;
+    width: 30%;
+    margin-top: 15px;
+    margin-left: 5%;
+    margin-right: -8%;
+  }
+
+  #buttonMinus {
+    background-color: #7F33A8;
+    border-radius: 15px;
+    box-shadow: 0px 3px 6px #00000029;
+    border: 2px solid #7F33A8;
+    color: #3C1153;
+    font-weight: 900;
+    cursor: pointer;
+    font-size: 50px;
+    font-family: Poppins, sans-serif;
+    height: 55px;
+    width: 30%;
+    margin-top: 15px;
+    margin-right: 5%;
+  }
+
+  #buttonMintarNFT {
+    background-color: #1EE0FF;
+    border-radius: 15px;
+    box-shadow: 0px 3px 6px #00000029;
+    color: white;
+    cursor: pointer;
+    padding: 15px;
+    margin-top: 8%;
+    margin-bottom: 8%;
+    width: 326px;
+    font-size: 21px;
+    font-weight: 900;
+    font-family: Poppins, sans-serif;
+    height: 55px;
+    letter-spacing: 2.1px;
+  }
+
+
+
+
+  #inputID::placeholder {
+    color: #fff;
+    opacity: 1;
+  }
+
+
+  #inputIDAmountMint {
+      text-align: center;
+      width: 70%; 
+      height: 55px ;
+      margin-top: 15px;
+      border: 2px solid #7F33A8;
+      box-shadow: 0px 3px 6px #00000029;
+      border-radius: 15px;
+      background-color: transparent; 
+      font-size: 21px; 
+      color: #fff;
+      text-shadow: 0px 3px 6px #00000029;
+      letter-spacing: 2.1px;
+      font-family: Poppins, sans-serif;
+      padding-left: 3%;
+  }
+
+
   #box {
     width: 300px;
   }
+
+  #box2 {
+    height: 100%;
+    margin-bottom: 15%;
+    padding-left: 5%;
+    padding-right: 5%;
+  }
+
   #orbs {
     width: 230px;
     height: 230px; 
-    marginBottom: 0px; 
-    paddingBottom: 0px;
-    marginTop: -50px; 
+    margin-bottom: 0px; 
+    padding-bottom: 0px;
+    margin-top: 100px; 
     opacity: 100%;
   }
   #page {
     overflow: scroll;
     height: 700px; 
+    width: 100%;
     justify-content: center;
-    align: center;
+    align-content: center;
   }
   #buttonID:hover {
     background: #35408a;
@@ -86,8 +173,25 @@ body {
     background: #35408a;
     border: 2px solid #35408a;
   }
-  #buttonID {
+
+
+  #inputID {
+    width: 326px;
+    height: 55px; 
+    border: 2px solid #7F33A8; 
+    box-shadow: 0px 3px 6px #00000029;
+    border-radius: 15px; 
     background: transparent;
+    font-size: 21px;
+    color: #fff; 
+    text-shadow: 0px 3px 6px #00000029; 
+    letter-spacing: 2.1px;
+    padding-left: 33px;
+  }
+
+
+  #buttonID2 {
+    background: #1EE0FF;
     border-radius: 15px;
     box-shadow: 0px 3px 6px #00000029;
     border: 2px solid #1EE0FF;
@@ -102,47 +206,164 @@ body {
     height: 50%;
   }
 
-  #buttonID2 {
+  #buttonID3 {
     background: #1EE0FF;
     border-radius: 15px;
     box-shadow: 0px 3px 6px #00000029;
     border: 2px solid #1EE0FF;
     color: white;
     cursor: pointer;
-    margin-left: 15px;
     padding: 15px;
-    width: 45%;
-    font-size: 70%;
+    width: 75%;
+    font-size: 110%;
+    margin-top: 4%;
+    margin-bottom: 8%;
+    font-weight: 900;
+    font-family: Poppins, sans-serif;
+    height: 50%;
+  }
+
+  #buttonID4 {
+    background: red;
+    border-radius: 15px;
+    box-shadow: 0px 3px 6px #00000029;
+    border: 2px solid red;
+    color: white;
+    cursor: pointer;
+    padding: 15px;
+    width: 75%;
+    font-size: 110%;
     font-weight: 900;
     font-family: Poppins, sans-serif;
     height: 50%;
   }
 }
 
-@media only screen and (min-width: 1000px) {
+
+
+
+
+
+
+
+
+
+@media only screen and (min-width: 601px) {
+
+  #buttonCancelar:hover {
+    background: black;
+    border: 2px solid black;
+  }
+
+  #buttonCancelar {}
+
   #oi {
     width: 20%;  
     height: 20%;
-    marginBottom: -100px; 
-    paddingBottom: 0;
-    marginTop: 100px;
+    margin-bottom: -100px; 
+    padding-bottom: 0;
+    margin-top: 100px;
   }
+
+  
+  #buttonMintarNFT {
+    background-color: #1EE0FF;
+    border-radius: 15px;
+    box-shadow: 0px 3px 6px #00000029;
+    color: white;
+    cursor: pointer;
+    padding: 15px;
+    margin: 30px 15px;
+    width: 326px;
+    font-size: 21px;
+    font-weight: 900;
+    font-family: Poppins, sans-serif;
+    height: 55px;
+    letter-spacing: 2.1px;
+  }
+
+  
+  #inputIDAmountMint {
+    text-align: center;
+    width: 136px; 
+    height: 55px ;
+    margin-top: 15px;
+    border: 2px solid #7F33A8;
+    box-shadow: 0px 3px 6px #00000029;
+    border-radius: 15px;
+    background-color: transparent; 
+    font-size: 21px; 
+    color: #fff;
+    text-shadow: 0px 3px 6px #00000029;
+    letter-spacing: 2.1px;
+    font-family: Poppins, sans-serif;
+    padding-left: 20px;
+}
+
+  #buttonPlus {
+    background-color: #7F33A8;
+    border-radius: 15px;
+    box-shadow: 0px 3px 6px #00000029;
+    border: 2px solid #7F33A8;
+    color: #3C1153;
+    font-weight: 900;
+    cursor: pointer;
+    font-size: 50px;
+    font-family: Poppins, sans-serif;
+    height: 55px;
+    width: 83px;
+    margin-top: 15;
+    margin-left: 12px;
+  }
+
+  #buttonMinus {
+    background-color: #7F33A8;
+    border-radius: 15px;
+    box-shadow: 0px 3px 6px #00000029;
+    border: 2px solid #7F33A8;
+    color: #3C1153;
+    font-weight: 900;
+    cursor: pointer;
+    font-size: 50px;
+    font-family: Poppins, sans-serif;
+    height: 55px;
+    width: 83px;
+    margin-top: 15;
+    margin-left: 12px;
+  }
+
   #box {
     width: 1200px;
   }
+
+  #inputID {
+    width: 326px;
+    height: 55px; 
+    border: 2px solid #7F33A8; 
+    box-shadow: 0px 3px 6px #00000029;
+    border-radius: 15px; 
+    background: transparent;
+    font-size: 21px;
+    color: #fff; 
+    text-shadow: 0px 3px 6px #00000029; 
+    letter-spacing: 2.1px;
+    padding-left: 33px;
+  }
+
   #orbs {
     width: 350px;
     height: 350px; 
-    marginBottom: 0px; 
-    paddingBottom: 0px;
-    marginTop: -50px; 
+    margin-bottom: 0px; 
+    padding-bottom: 0px;
+    margin-top: -50px; 
     opacity: 1;
   }
+
   #page {
     overflow: scroll;
     height: 1600px; 
     justify-content: center;
-    align: center;
+    align-content: center;
   }
   #buttonID:hover {
     background: #35408a;
@@ -180,6 +401,37 @@ body {
     padding: 15px;
     width: 25%;
     font-size: 100%;
+    font-weight: 900;
+    font-family: Poppins, sans-serif;
+    height: 50%;
+  }
+
+  #buttonID3 {
+    background: #1EE0FF;
+    border-radius: 15px;
+    box-shadow: 0px 3px 6px #00000029;
+    border: 2px solid #1EE0FF;
+    color: white;
+    cursor: pointer;
+    margin-left: 15px;
+    padding: 15px;
+    width: 25%;
+    font-size: 100%;
+    font-weight: 900;
+    font-family: Poppins, sans-serif;
+    height: 50%;
+  }
+
+  #buttonID4 {
+    background: red;
+    border-radius: 15px;
+    box-shadow: 0px 3px 6px #00000029;
+    border: 2px solid red;
+    color: white;
+    cursor: pointer;
+    padding: 15px;
+    width: 75%;
+    font-size: 110%;
     font-weight: 900;
     font-family: Poppins, sans-serif;
     height: 50%;

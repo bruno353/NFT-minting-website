@@ -8,6 +8,7 @@ import logo from "./assets/background/trix_logo.png";
 import orb from "./assets/background/orbes_azul.png"
 import orbVioleta from "./assets/background/orbes_violeta.png"
 import ERC721ABI from "./ERC721ABI.json"
+import {useRef} from 'react';
 
 var axios = require('axios');
 const web3Provider1 = new ethers.providers.JsonRpcProvider("https://eth-rinkeby.alchemyapi.io/v2/m8umOEv-BgiuBfFQJARY_V4gW3HORT1G")
@@ -45,7 +46,7 @@ const MaintMint = ({ accounts, setAccounts, proximo, setProximo }) => {
   }
 
   async function criarCarteira() {
-    setTamanho("130vh")
+    setTamanho("100vh")
     setProximo(true)
     setNaoPossuiCarteira(true)
   }
@@ -346,49 +347,24 @@ const MaintMint = ({ accounts, setAccounts, proximo, setProximo }) => {
 
     if (confirmTrans == true && naoPossuiCarteira == true) {
       return (
-        <Flex justify="center" align="center" height="120vh" paddingBottom="350px" lineHeight="50px" fontFamily={"Poppins, sans-serif;"}>
-          <Box width="1200px"> 
-            <h1>Você irá realizar a mintagem de {mintAmount} NFT(s) {orbName}</h1>
+        <Flex justify="center" align="center"   fontFamily={"Poppins, sans-serif;"}>
+          <Box id={"box2"}> 
+            <h1 style={{marginTop: "15%"}}>Você irá realizar a mintagem de {mintAmount} NFT(s) {orbName}</h1>
             <h1>Criaremos uma carteira Polygon para você poder acessar seus NFTs.</h1>
             <h1>Por favor, certifique-se de que {body} é um email válido e de que apenas você tenha acesso, por ele enviaremos as informações de como acessar a sua nova carteira.</h1>
             <h2>Total de {quantidadeUSD}</h2>
+
             <Button
-            backgroundColor="red"
-            borderRadius="15px"
-            boxShadow={"0px 3px 6px #00000029;"}
-            border={"2px solid red;"}
-            color="white"
-            cursor="pointer"
-            id="buttonCancelar"
-            padding="15px"
-            margin="0 15px"
-            width={"280px"}
-            fontSize='21px'
-            fontWeight={'900'}
-            fontFamily='Poppins, sans-serif;'
-            height={"66px"}
-            onClick={cancel}
-              >
-                CANCELAR
-              </Button>
-            <Button
-              backgroundColor="#1EE0FF"
-              borderRadius="15px"
-              boxShadow={"0px 3px 6px #00000029;"}
-              border={"2px solid #1EE0FF;"}
-              color="white"
-              cursor="pointer"
-              padding="15px"
-              margin="0 15px"
-              width={"280px"}
-              id="buttonID"
-              fontSize='21px'
-              fontWeight={'900'}
-              fontFamily='Poppins, sans-serif;'
-              height={"66px"}
+              id={"buttonID3"}
               onClick={handleConfirmacaoCompra}
               >
                 CONFIRMAR
+              </Button>
+              <Button
+            id={"buttonID4"}
+            onClick={cancel}
+              >
+                CANCELAR
               </Button>
           </Box>
       </Flex>
@@ -456,7 +432,7 @@ const MaintMint = ({ accounts, setAccounts, proximo, setProximo }) => {
 
         {isConnected || naoPossuiCarteira ? (
           <div>
-            <form style={{fontFamily:"Poppins, sans-serif"}}>
+            <form style={{fontFamily:"Poppins, sans-serif", justifyContent:"center", alignContent: "center"}}>
                 <input 
                   id="inputID"
                   type="text" 
@@ -464,18 +440,7 @@ const MaintMint = ({ accounts, setAccounts, proximo, setProximo }) => {
                   placeholder="Nome" 
                   value={title}
                   onChange={(e) => setTitle(e.target.value)}
-                  style={{ width: "326px", 
-                  height:"55px", 
-                  border: "2px solid #7F33A8", 
-                  boxShadow: "0px 3px 6px #00000029", 
-                  borderRadius: "15px", 
-                  backgroundColor: "transparent", 
-                  fontSize:"21px", 
-                  color:"#fff", 
-                  textShadow:"0px 3px 6px #00000029", 
-                  letterSpacing:"2.1px",
-                  paddingLeft:"33px"}}
-                />
+                  />
                 <div>
                 <div>
                   <input 
@@ -503,20 +468,7 @@ const MaintMint = ({ accounts, setAccounts, proximo, setProximo }) => {
             </form>
             <Flex justify="center" align="center">
               <Button
-                backgroundColor="#7F33A8"
-                borderRadius="15px"
-                boxShadow="0px 3px 6px #00000029"
-                border= "2px solid #7F33A8"
-                color= "#3C1153"
-                fontWeight= "900"
-                cursor="pointer"
-                fontSize="50px"
-                fontFamily="Poppins, sans-serif"
-                height="55px"
-                width="83px"
-                paddingBottom="15px"
-                marginTop="15"
-                marginRight="12px"
+                id={"buttonMinus"}
                 onClick={handleDecrement}
               >
                 {" "}
@@ -525,39 +477,13 @@ const MaintMint = ({ accounts, setAccounts, proximo, setProximo }) => {
 
               <Input
                 readOnly
-                fontFamily="Poppins, sans-serif"
-                textAlign="center"
-                id="inputID"
+                id="inputIDAmountMint"
                 type="number"
-                style={{ width: "136px", 
-                height:"55px", 
-                marginTop:"15px",
-                border: "2px solid #7F33A8", 
-                boxShadow: "0px 3px 6px #00000029", 
-                borderRadius: "15px", 
-                backgroundColor: "transparent", 
-                fontSize:"21px", 
-                color:"#fff", 
-                textShadow:"0px 3px 6px #00000029", 
-                letterSpacing:"2.1px",
-                paddingLeft:"20px"}}
                 value={mintAmount}
               />
 
               <Button
-                backgroundColor="#7F33A8"
-                borderRadius="15px"
-                boxShadow="0px 3px 6px #00000029"
-                border= "2px solid #7F33A8"
-                color= "#3C1153"
-                fontWeight= "900"
-                cursor="pointer"
-                fontSize="50px"
-                fontFamily="Poppins, sans-serif"
-                height="55px"
-                width="83px"
-                marginTop="15"
-                marginLeft="12px"
+                id={"buttonPlus"}
                 onClick={handleIncrement}
               >
                 {" "}
@@ -566,20 +492,7 @@ const MaintMint = ({ accounts, setAccounts, proximo, setProximo }) => {
             </Flex>
 
             <Button
-              backgroundColor="#1EE0FF"
-              borderRadius="15px"
-              boxShadow={"0px 3px 6px #00000029;"}
-              border={"2px solid #1EE0FF;"}
-              color="white"
-              cursor="pointer"
-              padding="15px"
-              margin="30px 15px"
-              width={"326px"}
-              fontSize='21px'
-              fontWeight={'900'}
-              fontFamily='Poppins, sans-serif;'
-              height={"55px"}
-              letterSpacing="2.1px"
+              id={"buttonMintarNFT"}
               onClick={handleMint}
             >
               MINTAR NFT

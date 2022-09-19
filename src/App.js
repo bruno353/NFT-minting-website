@@ -16,7 +16,7 @@ function App() {
   
   <div className="App">
     {proximo ? (   
-      <Flex overflow={"scroll"} height={"800px"} justify={"center"}>
+      <Flex id={"page"}>
       <div>
       <MainMint accounts={accounts} setAccounts={setAccounts}  proximo={proximo} setProximo={setProximo}/>
 
