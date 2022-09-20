@@ -167,6 +167,7 @@ body {
     font-size: 250%;
     font-family: Poppins, sans-serif;
     margin-top: 20%;
+
   }
 
   #orbs {
@@ -264,7 +265,7 @@ body {
   }
 
   #buttonID4 {
-    background: red;
+    background: transparent;
     border-radius: 15px;
     box-shadow: 0px 3px 6px #00000029;
     border: 2px solid red;
@@ -299,6 +300,10 @@ body {
   #navbar {
     justify-content: center;
     margin-top: 6%;
+  }
+
+  #buttonID4:hover {
+    background: red;
   }
 }
 
@@ -523,11 +528,11 @@ body {
     font-size: 150%;
     font-weight: 900;
     font-family: Poppins, sans-serif;
-    margin-top: 4%;
+    margin-bottom: 20%;
   }
 
   #buttonID4 {
-    background: red;
+    background: transparent;
     border-radius: 15px;
     box-shadow: 0px 3px 6px #00000029;
     border: 2px solid red;
@@ -535,10 +540,14 @@ body {
     cursor: pointer;
     padding: 1%;
     width: 25%;
-    margin-top: 4%;
     font-size: 150%;
     font-weight: 900;
     font-family: Poppins, sans-serif;
+    margin-bottom: 20%;
+  }
+
+  #buttonID4:hover {
+    background: red;
   }
 
   #box2 {
@@ -551,10 +560,25 @@ body {
     margin-top: 5%;
   }
 
+  #box4 {
+    width: 70%;
+    font-family: Poppins, sans-serif;
+    font-size: 80%;
+    padding-left: 4%;
+    padding-right: 4%;
+    padding-top: 2%;
+    padding-bottom: 2%;
+    margin-left: 15%;
+    border-radius: 15px;
+    justify-content: center;
+    border: 2px solid #7F33A8;
+  }
+
   #carregando {
     font-size: 250%;
     font-family: Poppins, sans-serif;
     margin-top: 20%;
+    padding-bottom: 10%;
   }
 
   #navbar {

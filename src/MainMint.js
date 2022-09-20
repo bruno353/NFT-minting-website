@@ -279,21 +279,24 @@ const MaintMint = ({ accounts, setAccounts, proximo, setProximo }) => {
   };
 
   const handleIncrement = () => {
-    if (mintAmount >= 100) return;
+    if (mintAmount >= 10) {
+      alert("Limite máximo de NFTs por carteira")
+      return
+    } ;
     setMintAmount(mintAmount + 1);
   };
 
 
   if (erroHandler == true) {
     return(<div fontFamily={"Poppins, sans-serif;"} >
-    <h1 style={{fontFamily: "Poppins, sans-serif", fontSize: "70px", marginTop: "150px"}}> Ops... algum erro aconteceu, atualize a página. </h1>
+    <h1 style={{fontFamily: "Poppins, sans-serif", fontSize: "70px", marginTop: "150px"}}> Ops... algum erro aconteceu, tente novamente. </h1>
   </div>)
   }
 
   if (isMinting == true){
-    return(<div fontFamily={"Poppins, sans-serif;"} >
+    return(<div fontFamily={"Poppins, sans-serif;"}>
       <h1 id={"carregando"}> Carregando </h1>
-      <span><Spin indicator={<LoadingOutlined style={{ fontSize: 200 }} spin />} /></span>
+      <span><Spin indicator={<LoadingOutlined style={{ fontSize: 200, marginBottom: "200%" }} spin />} /></span>
     </div>)}
 
   if (confirmTrans == true && naoPossuiCarteira == false) {
@@ -323,14 +326,31 @@ const MaintMint = ({ accounts, setAccounts, proximo, setProximo }) => {
 
     if (confirmTrans == true && naoPossuiCarteira == true) {
       return (
-        <Flex id={"box3"}>
-          <Box id={"box2"}> 
-          <Text>
-            <h1>Você irá realizar a mintagem de {mintAmount} NFT(s) {orbName}</h1>
-            <h1>Criaremos uma carteira Polygon para você poder acessar seus NFTs.</h1>
-            <h1>Por favor, certifique-se de que <p style={{fontSize: "80%"}}>{(body)}</p> é um email válido e de que apenas você tenha acesso, por ele enviaremos as informações de como acessar a sua nova carteira.</h1>
-            <h2>Total de {quantidadeUSD}</h2>
+        <Flex justify="center"  height={tamanho} paddingBottom="3%" paddingTop="3%">
+        <Box id={"box"}>
+            <img src={logo} id={"oi"} style={{height: "12%"}}/>
+            <div>
+            {founderMintIsOver ? (<img src={orb} id={"orbs"}/>) : 
+            (<img src={orbVioleta}  id={"orbs"}/>)}
+              <Text
+              fontSize="25px"
+              fontWeight={"900"}
+              color="#1EE0FF"
+              fontFamily='Poppins, sans-serif;'
+              marginBottom="0px"
+              paddingBottom="0px"
+              marginTop="-40px"
+            >
+              {founderMintIsOver ? (<p>ORBE INTERDIMENSIONAL</p>) : (<p>ORBE GÊNESIS</p>)}
             </Text>
+            <Text fontSize="130%"
+            fontFamily='Poppins, sans-serif;'>
+            <p>Total de {quantidadeUSD}</p>
+            </Text>
+          <Text id={"box4"}>
+            <h1>Você irá realizar a mintagem de {mintAmount} NFT(s) {orbName} para a rede Polygon. Por favor, certifique-se de que inseriu um email válido para que possamos enviar a confirmação de compra do seu NFT e de como visualizá-lo.</h1>
+          </Text>
+          <div style={{marginTop: "5%", paddingBottom: "10%"}}>
             <Button
               id={"buttonID3"}
               onClick={handleConfirmacaoCompra}
@@ -343,11 +363,11 @@ const MaintMint = ({ accounts, setAccounts, proximo, setProximo }) => {
               >
                 CANCELAR
               </Button>
-
-
-          </Box>
-      </Flex>
-  
+              </div>
+          </div>
+            
+        </Box>
+        </Flex>
       )}
 
 
@@ -387,6 +407,8 @@ const MaintMint = ({ accounts, setAccounts, proximo, setProximo }) => {
             fontSize="18px"
             fontFamily='Poppins, sans-serif;'
             marginTop='-4%'
+            width="55%"
+            marginLeft="23%"
           >
             {founderMintIsOver? (
 
@@ -410,6 +432,7 @@ const MaintMint = ({ accounts, setAccounts, proximo, setProximo }) => {
         </div>
 
         {isConnected || naoPossuiCarteira ? (
+          
           <div align="flex-end">
             <form id="pageMintarNFT2">
                 <input 

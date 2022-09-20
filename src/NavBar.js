@@ -32,19 +32,19 @@ const NavBar = ({accounts, setAccounts}) => {
                 <Link href="https://www.linkedin.com/company/brais-games/?originalSubdomain=br" target={"_blank"}>
                     <Image src={Linkedin} width="20px" height="20px"  marginLeft="15px" marginRight="15px"/>
                 </Link>
-                <Link href="https://discord.com/" target={"_blank"}>
+                <Link href="discord.io/trixbtgame" target={"_blank"}>
                     <Image src={Discord} width="20px" height="20px" marginLeft="15px" marginRight="15px"/>
                 </Link>
-                <Link href="https://telegram.com/" target={"_blank"}>
+                <Link href="https://t.me/+AdVdaDveWIIxYWQx" target={"_blank"}>
                     <Image src={Telegram} width="20px" height="20px" marginLeft="15px" marginRight="15px"/>
                 </Link>
                 <Link href="https://twitter.com/trixbtgame" target={"_blank"}>
                     <Image src={Twitter} width="20px" height="20px" marginLeft="15px" marginRight="15px"/>
                 </Link>
-                <Link href="https://www.instagram.com/trixbtgame" target={"_blank"}>
+                <Link href="https://www.instagram.com/trixbtgame/" target={"_blank"}>
                     <Image src={Instagram} width="20px" height="20px" marginLeft="15px" marginRight="15px"/>
                 </Link>
-                <Link href="https://www.facebook.com/" target={"_blank"}>
+                <Link href="https://www.facebook.com/braisgames/" target={"_blank"}>
                     <Image src={Facebook} width="20px" height="20px" marginLeft="15px" marginRight="15px"/>
                 </Link>
                 <Link href="https://www.youtube.com/channel/UCeDkcq0R-wPezFKLh06z2mA" target={"_blank"}>
