@@ -73,10 +73,10 @@ body {
     font-size: 50px;
     font-family: Poppins, sans-serif;
     height: 55px;
-    width: 30%;
+    width: 100%;
     margin-top: 15px;
-    margin-left: 5%;
-    margin-right: -8%;
+    margin-left: 3%;
+    
   }
 
   #buttonMinus {
@@ -90,9 +90,9 @@ body {
     font-size: 50px;
     font-family: Poppins, sans-serif;
     height: 55px;
-    width: 30%;
+    width: 100%;
     margin-top: 15px;
-    margin-right: 5%;
+    margin-right: 3%;
   }
 
   #buttonMintarNFT {
@@ -103,8 +103,8 @@ body {
     cursor: pointer;
     padding: 15px;
     margin-top: 8%;
-    margin-bottom: 8%;
-    width: 326px;
+    margin-bottom: 15%;
+    width: 100%;
     font-size: 21px;
     font-weight: 900;
     font-family: Poppins, sans-serif;
@@ -123,7 +123,7 @@ body {
 
   #inputIDAmountMint {
       text-align: center;
-      width: 70%; 
+      width: 100%; 
       height: 55px ;
       margin-top: 15px;
       border: 2px solid #7F33A8;
@@ -136,18 +136,38 @@ body {
       letter-spacing: 2.1px;
       font-family: Poppins, sans-serif;
       padding-left: 3%;
+      justify-content: center;
   }
 
 
   #box {
-    width: 300px;
+    width: 100%;
+    height: 100%;
+    padding-left: 10%;
+    padding-right: 10%;
+    margin-bottom: 50%;
+    margin-top: 10%;
   }
 
   #box2 {
-    height: 100%;
-    margin-bottom: 15%;
-    padding-left: 5%;
-    padding-right: 5%;
+    width: 100%;
+    font-family: Poppins, sans-serif;
+    margin-left: 5%;
+    margin-right: 5%;
+    font-size: 80%;
+    margin-bottom: 50%;
+    overflow: scroll;
+    height: 80%;
+    margin-top: -5%;
+  }
+
+    
+
+
+  #carregando {
+    font-size: 250%;
+    font-family: Poppins, sans-serif;
+    margin-top: 20%;
   }
 
   #orbs {
@@ -160,10 +180,13 @@ body {
   }
   #page {
     overflow: scroll;
-    height: 700px; 
     width: 100%;
+    padding-top: 10%;
+    height: 100%;
+    padding-bottom: 10%;
     justify-content: center;
     align-content: center;
+    
   }
   #buttonID:hover {
     background: #35408a;
@@ -176,7 +199,7 @@ body {
 
 
   #inputID {
-    width: 326px;
+    width: 100%;
     height: 55px; 
     border: 2px solid #7F33A8; 
     box-shadow: 0px 3px 6px #00000029;
@@ -187,6 +210,8 @@ body {
     text-shadow: 0px 3px 6px #00000029; 
     letter-spacing: 2.1px;
     padding-left: 33px;
+    justify-content: center;
+    align-content: center;
   }
 
 
@@ -197,13 +222,29 @@ body {
     border: 2px solid #1EE0FF;
     color: white;
     cursor: pointer;
-    margin-left: 15px;
     padding: 15px;
     width: 45%;
     font-size: 70%;
     font-weight: 900;
     font-family: Poppins, sans-serif;
-    height: 50%;
+    margin-bottom: 60%;
+    height: 100%;
+  }
+  #buttonID {
+    background: transparent;
+    border-radius: 15px;
+    box-shadow: 0px 3px 6px #00000029;
+    border: 2px solid #1EE0FF;
+    color: white;
+    cursor: pointer;
+    padding: 15px;
+    margin-left: 5%;
+    width: 45%;
+    font-size: 70%;
+    font-weight: 900;
+    font-family: Poppins, sans-serif;
+    margin-bottom: 60%;
+    height: 100%;
   }
 
   #buttonID3 {
@@ -217,7 +258,7 @@ body {
     width: 75%;
     font-size: 110%;
     margin-top: 4%;
-    margin-bottom: 8%;
+    margin-bottom: 3%;
     font-weight: 900;
     font-family: Poppins, sans-serif;
     height: 50%;
@@ -237,6 +278,24 @@ body {
     font-family: Poppins, sans-serif;
     height: 50%;
   }
+
+  #pageMintarNFT {
+    font-family: Poppins, sans-serif;
+    justify-content: center;
+    align-content: center;
+    width: 100%;
+  }
+
+  #pageMintarNFT2 {
+    font-family: Poppins, sans-serif;
+    justify-content: center;
+    align-content: center;
+    width: 100%;
+  }
+
+  #flexMintarNFT {
+    padding-bottom: 100%;
+  }
 }
 
 
@@ -254,38 +313,40 @@ body {
     background: black;
     border: 2px solid black;
   }
+  #buttonMintarNFT:hover {
+    background: #35408a;
+    border: 2px solid #35408a;
+  }
+
 
   #buttonCancelar {}
+
+  #pageMintarNFT {
+    font-family: Poppins, sans-serif;
+    justify-content: center;
+    align-content: center;
+    width: 100%;
+  }
+
+  #pageMintarNFT2 {
+    font-family: Poppins, sans-serif;
+    justify-content: center;
+    align-content: center;
+    width: 100%;
+  }
 
   #oi {
     width: 20%;  
     height: 20%;
-    margin-bottom: -100px; 
+    margin-bottom: 0; 
     padding-bottom: 0;
-    margin-top: 100px;
-  }
-
-  
-  #buttonMintarNFT {
-    background-color: #1EE0FF;
-    border-radius: 15px;
-    box-shadow: 0px 3px 6px #00000029;
-    color: white;
-    cursor: pointer;
-    padding: 15px;
-    margin: 30px 15px;
-    width: 326px;
-    font-size: 21px;
-    font-weight: 900;
-    font-family: Poppins, sans-serif;
-    height: 55px;
-    letter-spacing: 2.1px;
+    margin-top: -10%;
   }
 
   
   #inputIDAmountMint {
     text-align: center;
-    width: 136px; 
+    width:  14%; 
     height: 55px ;
     margin-top: 15px;
     border: 2px solid #7F33A8;
@@ -300,44 +361,73 @@ body {
     padding-left: 20px;
 }
 
-  #buttonPlus {
-    background-color: #7F33A8;
-    border-radius: 15px;
-    box-shadow: 0px 3px 6px #00000029;
-    border: 2px solid #7F33A8;
-    color: #3C1153;
-    font-weight: 900;
-    cursor: pointer;
-    font-size: 50px;
-    font-family: Poppins, sans-serif;
-    height: 55px;
-    width: 83px;
-    margin-top: 15;
-    margin-left: 12px;
-  }
+#buttonPlus {
+  background-color: #7F33A8;
+  border-radius: 15px;
+  box-shadow: 0px 3px 6px #00000029;
+  border: 2px solid #7F33A8;
+  color: #3C1153;
+  font-weight: 900;
+  cursor: pointer;
+  font-size: 50px;
+  font-family: Poppins, sans-serif;
+  height: 55px;
+  width: 7%;
+  margin-top: 15px;
+  margin-left: 1%;
+  
+}
 
-  #buttonMinus {
-    background-color: #7F33A8;
-    border-radius: 15px;
-    box-shadow: 0px 3px 6px #00000029;
-    border: 2px solid #7F33A8;
-    color: #3C1153;
-    font-weight: 900;
-    cursor: pointer;
-    font-size: 50px;
-    font-family: Poppins, sans-serif;
-    height: 55px;
-    width: 83px;
-    margin-top: 15;
-    margin-left: 12px;
-  }
+#buttonMinus {
+  background-color: #7F33A8;
+  border-radius: 15px;
+  box-shadow: 0px 3px 6px #00000029;
+  border: 2px solid #7F33A8;
+  color: #3C1153;
+  font-weight: 900;
+  cursor: pointer;
+  font-size: 50px;
+  font-family: Poppins, sans-serif;
+  height: 55px;
+  width: 7%;
+  padding-bottom: 1%;
+  margin-top: 15px;
+  margin-right: 1%;
+}
+
+#buttonMintarNFT {
+  background-color: #1EE0FF;
+  border-radius: 15px;
+  box-shadow: 0px 3px 6px #00000029;
+  text-shadow: 0px 3px 6px #00000029;
+  color: white;
+  cursor: pointer;
+  padding: 15px;
+  margin-top: 3%;
+  margin-bottom: 15%;
+  width: 30%;
+  font-size: 21px;
+  font-weight: 900;
+  font-family: Poppins, sans-serif;
+  height: 9%;
+  letter-spacing: 2.1px;
+  justify-content: center;
+  align-content: center;
+}
+
+#flexMintarNFT {
+  margin-bottom: -20%;
+  width: 100%;
+  justify-content: center;
+  align-content: center;
+}
 
   #box {
     width: 1200px;
   }
 
   #inputID {
-    width: 326px;
+    width: 30%;
     height: 55px; 
     border: 2px solid #7F33A8; 
     box-shadow: 0px 3px 6px #00000029;
@@ -348,6 +438,9 @@ body {
     text-shadow: 0px 3px 6px #00000029; 
     letter-spacing: 2.1px;
     padding-left: 33px;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
   }
 
   #orbs {
@@ -355,7 +448,7 @@ body {
     height: 350px; 
     margin-bottom: 0px; 
     padding-bottom: 0px;
-    margin-top: -50px; 
+    margin-top: -1%; 
     opacity: 1;
   }
 
@@ -381,11 +474,13 @@ body {
     border: 2px solid #1EE0FF;
     color: white;
     cursor: pointer;
-    margin-left: 15px;
     padding: 15px;
     width: 25%;
     font-size: 100%;
     font-weight: 900;
+    margin-top: 3%;
+    margin-bottom: -4%;
+    margin-left: 2%;
     font-family: Poppins, sans-serif;
     height: 50%;
   }
@@ -397,10 +492,11 @@ body {
     border: 2px solid #1EE0FF;
     color: white;
     cursor: pointer;
-    margin-left: 15px;
     padding: 15px;
     width: 25%;
     font-size: 100%;
+    margin-bottom: -4%;
+    margin-top: 3%;
     font-weight: 900;
     font-family: Poppins, sans-serif;
     height: 50%;
@@ -436,5 +532,16 @@ body {
     font-family: Poppins, sans-serif;
     height: 50%;
   }
+
+  #box2 {
+    width: 100%;
+    font-family: Poppins, sans-serif;
+    margin-left: 5%;
+    margin-right: 5%;
+    font-size: 80%;
+    margin-bottom: 50%;
+    margin-top: 5%;
+  }
+
 }
 

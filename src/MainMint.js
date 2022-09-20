@@ -291,7 +291,7 @@ const MaintMint = ({ accounts, setAccounts, proximo, setProximo }) => {
 
   if (isMinting == true){
     return(<div fontFamily={"Poppins, sans-serif;"} >
-      <h1 style={{fontFamily: "Poppins, sans-serif", fontSize: "100px", marginTop: "150px"}}> Carregando </h1>
+      <h1 id={"carregando"}> Carregando </h1>
       <span><Spin indicator={<LoadingOutlined style={{ fontSize: 200 }} spin />} /></span>
     </div>)}
 
@@ -347,13 +347,14 @@ const MaintMint = ({ accounts, setAccounts, proximo, setProximo }) => {
 
     if (confirmTrans == true && naoPossuiCarteira == true) {
       return (
-        <Flex justify="center" align="center"   fontFamily={"Poppins, sans-serif;"}>
+        <Flex id={"box3"}>
           <Box id={"box2"}> 
-            <h1 style={{marginTop: "15%"}}>Você irá realizar a mintagem de {mintAmount} NFT(s) {orbName}</h1>
+          <Text>
+            <h1>Você irá realizar a mintagem de {mintAmount} NFT(s) {orbName}</h1>
             <h1>Criaremos uma carteira Polygon para você poder acessar seus NFTs.</h1>
-            <h1>Por favor, certifique-se de que {body} é um email válido e de que apenas você tenha acesso, por ele enviaremos as informações de como acessar a sua nova carteira.</h1>
+            <h1>Por favor, certifique-se de que <p style={{fontSize: "80%"}}>{(body)}</p> é um email válido e de que apenas você tenha acesso, por ele enviaremos as informações de como acessar a sua nova carteira.</h1>
             <h2>Total de {quantidadeUSD}</h2>
-
+            </Text>
             <Button
               id={"buttonID3"}
               onClick={handleConfirmacaoCompra}
@@ -432,13 +433,14 @@ const MaintMint = ({ accounts, setAccounts, proximo, setProximo }) => {
 
         {isConnected || naoPossuiCarteira ? (
           <div>
-            <form style={{fontFamily:"Poppins, sans-serif", justifyContent:"center", alignContent: "center"}}>
+            <form id="pageMintarNFT2">
                 <input 
                   id="inputID"
                   type="text" 
                   required
                   placeholder="Nome" 
                   value={title}
+                  style={{marginBottom: "1%"}}
                   onChange={(e) => setTitle(e.target.value)}
                   />
                 <div>
@@ -450,23 +452,12 @@ const MaintMint = ({ accounts, setAccounts, proximo, setProximo }) => {
                   placeholder="Email"
                   value={body}
                   onChange={(e) => setBody(e.target.value)}
-                  style={{ width: "326px", 
-                  height:"55px", 
-                  marginTop:"15px",
-                  border: "2px solid #7F33A8", 
-                  boxShadow: "0px 3px 6px #00000029", 
-                  borderRadius: "15px", 
-                  backgroundColor: "transparent", 
-                  fontSize:"21px", 
-                  color:"#fff", 
-                  textShadow:"0px 3px 6px #00000029", 
-                  letterSpacing:"2.1px",
-                  paddingLeft:"33px"}}
+              
                 />
                 </div>
                 </div>
             </form>
-            <Flex justify="center" align="center">
+            <Flex id="pageMintarNFT">
               <Button
                 id={"buttonMinus"}
                 onClick={handleDecrement}
@@ -490,16 +481,17 @@ const MaintMint = ({ accounts, setAccounts, proximo, setProximo }) => {
                 +
               </Button>
             </Flex>
-
+          <Flex id={"flexMintarNFT"}>
             <Button
               id={"buttonMintarNFT"}
               onClick={handleMint}
             >
               MINTAR NFT
             </Button>
+          </Flex>
           </div>
         ) : (
-          <div style={{marginTop: "4%", marginBottom: "-1rem", width: "100%"}}>
+          <div style={{marginTop: "4%", width: "100%"}}>
           <Button 
           id={"buttonID2"}
           onClick={connectAccount}
