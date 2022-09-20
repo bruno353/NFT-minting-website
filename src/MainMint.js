@@ -39,7 +39,7 @@ const MaintMint = ({ accounts, setAccounts, proximo, setProximo }) => {
               method: "eth_requestAccounts",
           });
       setAccounts(accounts);
-      setTamanho("200vh")
+      setTamanho("100vh")
       setProximo(true)
       }
 
@@ -297,45 +297,19 @@ const MaintMint = ({ accounts, setAccounts, proximo, setProximo }) => {
 
   if (confirmTrans == true && naoPossuiCarteira == false) {
     return (
-      <Flex justify="center" align="center" height="120vh" paddingBottom="350px" lineHeight="50px" fontFamily={"Poppins, sans-serif;"}>
-        <Box width="1200px">
+      <Flex id={"box3"}>
+        <Box id={"box2"}>
           <h1>Você irá realizar a mintagem de {mintAmount} NFT(s) {orbName} para a carteira {userAddress} na rede Polygon.</h1>
           <h1>Por favor, certifique-se de que inseriu um email válido para que possamos enviar a confirmação de compra do seu NFT e de como visualizá-lo.</h1>
           <h2>Total de {quantidadeUSD}</h2>
           <Button
-          backgroundColor="red"
-          borderRadius="15px"
-          boxShadow={"0px 3px 6px #00000029;"}
-          border={"2px solid red;"}
-          color="white"
-          cursor="pointer"
-          id="buttonCancelar"
-          padding="15px"
-          margin="0 15px"
-          width={"280px"}
-          fontSize='21px'
-          fontWeight={'900'}
-          fontFamily='Poppins, sans-serif;'
-          height={"66px"}
+          id={"buttonID3"}
           onClick={cancel}
             >
               CANCELAR
             </Button>
           <Button
-            backgroundColor="#1EE0FF"
-            borderRadius="15px"
-            boxShadow={"0px 3px 6px #00000029;"}
-            border={"2px solid #1EE0FF;"}
-            color="white"
-            cursor="pointer"
-            padding="15px"
-            margin="0 15px"
-            width={"280px"}
-            id="buttonID"
-            fontSize='21px'
-            fontWeight={'900'}
-            fontFamily='Poppins, sans-serif;'
-            height={"66px"}
+            id={"buttonID4"}
             onClick={handleConfirmacaoCompra}
             >
               CONFIRMAR
@@ -374,7 +348,7 @@ const MaintMint = ({ accounts, setAccounts, proximo, setProximo }) => {
 
 
   return (
-    <Flex justify="center" align="center" height={tamanho} paddingBottom="1px">
+    <Flex justify="center"  height={tamanho} paddingBottom="3%" paddingTop="3%">
       <Box id={"box"}>
         <div>
           <img src={logo} id={"oi"}/>
@@ -432,7 +406,7 @@ const MaintMint = ({ accounts, setAccounts, proximo, setProximo }) => {
         </div>
 
         {isConnected || naoPossuiCarteira ? (
-          <div>
+          <div align="flex-end">
             <form id="pageMintarNFT2">
                 <input 
                   id="inputID"

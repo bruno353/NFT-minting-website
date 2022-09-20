@@ -24,7 +24,7 @@ function App() {
       <Flex id={"page"}>
       <div>
       <MainMint accounts={accounts} setAccounts={setAccounts}  proximo={proximo} setProximo={setProximo}/>
-      <NavBar accounts={accounts} setAccounts={setAccounts} proximo={proximo} setProximo={setProximo}/>
+      <NavBar accounts={accounts} setAccounts={setAccounts} proximo={proximo} setProximo={setProximo} style={{marginBottom: "-1000px"}}/>
     </div>
     </Flex>
     )}

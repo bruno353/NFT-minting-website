@@ -25,7 +25,7 @@ const NavBar = ({accounts, setAccounts}) => {
 
     return(
         
-        <Flex justify="center" align="center" marginTop="1%" >
+        <Flex id={"navbar"}>
         
             {/*Left Side - Social Media Icons*/}
             <Flex justify="center" align='center' width="40%" padding="1px">
