@@ -238,6 +238,7 @@ const MaintMint = ({ accounts, setAccounts, proximo, setProximo }) => {
      }
      if(body.includes("@") == false || body.includes(".") == false){
       alert("Por favor, ensira um e-mail válido")
+      return
      }
     if(naoPossuiCarteira == true) {
       setConfirmTrans(true)
@@ -303,17 +304,18 @@ const MaintMint = ({ accounts, setAccounts, proximo, setProximo }) => {
           <h1>Por favor, certifique-se de que inseriu um email válido para que possamos enviar a confirmação de compra do seu NFT e de como visualizá-lo.</h1>
           <h2>Total de {quantidadeUSD}</h2>
           <Button
-          id={"buttonID3"}
-          onClick={cancel}
-            >
-              CANCELAR
-            </Button>
-          <Button
-            id={"buttonID4"}
+            id={"buttonID3"}
             onClick={handleConfirmacaoCompra}
             >
               CONFIRMAR
             </Button>
+          <Button
+          id={"buttonID4"}
+          onClick={cancel}
+            >
+              CANCELAR
+            </Button>
+
         </Box>
     </Flex>
 
@@ -335,12 +337,14 @@ const MaintMint = ({ accounts, setAccounts, proximo, setProximo }) => {
               >
                 CONFIRMAR
               </Button>
-              <Button
+            <Button
             id={"buttonID4"}
             onClick={cancel}
               >
                 CANCELAR
               </Button>
+
+
           </Box>
       </Flex>
   
