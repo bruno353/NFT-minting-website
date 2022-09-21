@@ -350,7 +350,7 @@ const MaintMint = ({ accounts, setAccounts, proximo, setProximo }) => {
           <Text id={"box4"}>
             <h1>Você irá realizar a mintagem de {mintAmount} NFT(s) {orbName} para a rede Polygon. Por favor, certifique-se de que inseriu um email válido para que possamos enviar a confirmação de compra do seu NFT e de como visualizá-lo.</h1>
           </Text>
-          <div style={{marginTop: "5%", paddingBottom: "10%"}}>
+          <div id={"boxConfirmarCompra"}>
             <Button
               id={"buttonID3"}
               onClick={handleConfirmacaoCompra}
@@ -404,11 +404,7 @@ const MaintMint = ({ accounts, setAccounts, proximo, setProximo }) => {
           ):(
             
           <Text
-            fontSize="18px"
-            fontFamily='Poppins, sans-serif;'
-            marginTop='-4%'
-            width="55%"
-            marginLeft="23%"
+              id={"textoDescrito"}
           >
             {founderMintIsOver? (
 
