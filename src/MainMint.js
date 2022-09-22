@@ -13,7 +13,7 @@ import {useRef} from 'react';
 
 var axios = require('axios');
 const web3Provider1 = new ethers.providers.JsonRpcProvider("https://eth-rinkeby.alchemyapi.io/v2/m8umOEv-BgiuBfFQJARY_V4gW3HORT1G")
-const contractAddress = "0x73dFDaeBD27d1bC3C44daA573E8269a70A55D903"
+const contractAddress = "0x4093b3920c9a1C41794E43597439eDb9C5E878f5"
 const contract = new ethers.Contract(contractAddress, ERC721ABI, web3Provider1);
 let contador;
 
@@ -115,13 +115,13 @@ const MaintMint = ({ accounts, setAccounts, proximo, setProximo }) => {
 
 
     
-    if (cont < 25) {
+    if (cont < 25 || orbName == "ORBE INTERDIMENSIONAL") {
       if (naoPossuiCarteira == true){
         chamadaAPINoMetamask()
       }
       if(naoPossuiCarteira == false){chamadaAPI()}
     }
-    if(cont == 25){
+    if(cont == 25 && orbName != "ORBE INTERDIMENSIONAL"){
       setErroHandler(true)
     }}
 
@@ -158,8 +158,7 @@ const MaintMint = ({ accounts, setAccounts, proximo, setProximo }) => {
   }
 
   function retornar() {
-    setAccounts(null)
-    setNaoPossuiCarteira(false)
+    window.location.reload(false);
   }
 
 
@@ -285,11 +284,27 @@ const MaintMint = ({ accounts, setAccounts, proximo, setProximo }) => {
   };
 
   const handleIncrement = () => {
+    if(NFTminted > 0) {    
+    if (NFTminted < 10){
+      if(mintAmount >= NFTminted){
+        alert("Limite máximo de NFTs atingido!")
+        return
+      }
+    }
     if (mintAmount >= 10) {
       alert("Limite máximo de NFTs por carteira")
       return
-    } ;
+    }
     setMintAmount(mintAmount + 1);
+    return}
+    else {
+      if (mintAmount >= 10) {
+        alert("Limite máximo de NFTs por carteira")
+        return
+      }
+      setMintAmount(mintAmount + 1);
+      return
+    }
   };
 
 
@@ -428,7 +443,7 @@ const MaintMint = ({ accounts, setAccounts, proximo, setProximo }) => {
               marginBottom="30px"
               marginTop="0px"
             >
-              {founderMintIsOver ? (<p>US$ 15,00</p>) : (<p>US$ 10,00</p>)}
+              {founderMintIsOver ? (<p>US$ {mintAmount * 15},00</p>) : (<p>US$ {mintAmount * 10},00</p>)}
             </Text>
           </div>
           ):(
@@ -438,15 +453,10 @@ const MaintMint = ({ accounts, setAccounts, proximo, setProximo }) => {
           >
             {founderMintIsOver? (
 
-            <p>Adquira uma orbe coleção interdimensional. 
-                A Orbe contém um personagem, que será revelado no evento de abertura, com emote e ícone dentro do jogo.
-                
-                
+            <p style={{"margin-bottom":"35px"}}> <h1 id={"titulo"}>ORBE INTERDIMENSIONAL</h1> ADQUIRA JÁ O SEU
             </p>) : (
 
-              <p style={{"margin-bottom":"35px"}}>Adquira uma orbe exclusiva e limitada da coleção Gênesis. 
-                A Orbe contém um personagem, que será revelado no evento de abertura, emote e ícone exclusivos dentro do jogo, 
-                além da possibilidade de fazer missões exclusivas. <br /> <br /> Faltam {NFTminted} NFTs founders a serem mintados.
+              <p style={{"margin-bottom":"35px"}}> <h1 id={"titulo"}>ORBE GÊNESIS</h1> ADQUIRA JÁ O SEU <br /> UNIDADES LIMITADAS <br /> <br /> Faltam {NFTminted} NFTs founders a serem mintados.
               </p>
 
             )}

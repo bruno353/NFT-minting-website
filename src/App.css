@@ -107,6 +107,7 @@ body {
     width: 100%;
     margin-top: 15px;
     margin-right: 3%;
+    padding-bottom: 1%;
   }
 
   #buttonMintarNFT {
@@ -343,6 +344,7 @@ body {
     position: absolute;
   }
 
+
 }
 
 
@@ -444,6 +446,7 @@ body {
   width: 7%;
   margin-top: 15px;
   margin-right: 1%;
+  padding-bottom: 1%;
 }
 
 #buttonMintarNFT {
@@ -641,6 +644,14 @@ body {
     width: 1.5%;
     margin-right: 85%;
     position: absolute;
+  }
+
+  #recolher:hover {
+    height: 4%;
+    width: 1.5%;
+    margin-right: 85%;
+    position: absolute;
+    cursor: pointer;
   }
 }
 
@@ -738,6 +749,7 @@ body {
   width: 7%;
   margin-top: 15px;
   margin-right: 1%;
+  padding-bottom: 1%;
 }
 
 #buttonMintarNFT {
@@ -935,5 +947,18 @@ body {
     width: 1.5%;
     margin-right: 85%;
     position: absolute;
+  }
+
+  #recolher:hover {
+    height: 4%;
+    width: 1.5%;
+    margin-right: 85%;
+    position: absolute;
+    cursor: pointer; 
+  }
+
+  #titulo {
+    margin-bottom: 1%;
+    font-weight: 900;
   }
 }
