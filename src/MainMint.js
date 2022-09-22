@@ -7,6 +7,7 @@ import { Spin, Row, Col } from "antd";
 import logo from "./assets/background/trix_logo.png";
 import orb from "./assets/background/orbes_azul.png"
 import orbVioleta from "./assets/background/orbes_violeta.png"
+import recolher from "./assets/background/but_recolher.png"
 import ERC721ABI from "./ERC721ABI.json"
 import {useRef} from 'react';
 
@@ -156,6 +157,11 @@ const MaintMint = ({ accounts, setAccounts, proximo, setProximo }) => {
     });
   }
 
+  function retornar() {
+    setAccounts(null)
+    setNaoPossuiCarteira(false)
+  }
+
 
 
 
@@ -301,11 +307,33 @@ const MaintMint = ({ accounts, setAccounts, proximo, setProximo }) => {
 
   if (confirmTrans == true && naoPossuiCarteira == false) {
     return (
-      <Flex id={"box3"}>
-        <Box id={"box2"}>
-          <h1>Você irá realizar a mintagem de {mintAmount} NFT(s) {orbName} para a carteira {userAddress} na rede Polygon.</h1>
-          <h1>Por favor, certifique-se de que inseriu um email válido para que possamos enviar a confirmação de compra do seu NFT e de como visualizá-lo.</h1>
-          <h2>Total de {quantidadeUSD}</h2>
+      
+      <Flex justify="center"  height={tamanho} paddingBottom="3%" paddingTop="3%">
+        
+        <Box id={"box"}>
+        <img src={logo} id={"oi"} style={{height: "12%"}}/>
+            <div>
+            {founderMintIsOver ? (<img src={orb} id={"orbs"}/>) : 
+            (<img src={orbVioleta}  id={"orbs"}/>)}
+              <Text
+              fontSize="25px"
+              fontWeight={"900"}
+              color="#1EE0FF"
+              fontFamily='Poppins, sans-serif;'
+              marginBottom="0px"
+              paddingBottom="0px"
+              marginTop="-40px"
+            >
+              {founderMintIsOver ? (<p>ORBE INTERDIMENSIONAL</p>) : (<p>ORBE GÊNESIS</p>)}
+            </Text>
+            <Text fontSize="130%"
+            fontFamily='Poppins, sans-serif;'>
+            <p>Total de {quantidadeUSD}</p>
+            </Text>
+            <Text id={"box4"}>
+              <h1>Você irá realizar a mintagem de {mintAmount} NFT(s) {orbName} para a carteira {userAddress} na rede Polygon. Por favor, certifique-se de que inseriu um email válido para que possamos enviar a confirmação de compra do seu NFT e de como visualizá-lo.</h1>
+          </Text>
+          <div id={"boxConfirmarCompra"}>
           <Button
             id={"buttonID3"}
             onClick={handleConfirmacaoCompra}
@@ -318,7 +346,8 @@ const MaintMint = ({ accounts, setAccounts, proximo, setProximo }) => {
             >
               CANCELAR
             </Button>
-
+            </div>
+            </div>
         </Box>
     </Flex>
 
@@ -373,6 +402,7 @@ const MaintMint = ({ accounts, setAccounts, proximo, setProximo }) => {
 
   return (
     <Flex justify="center"  height={tamanho} paddingBottom="3%" paddingTop="3%">
+    { isConnected || naoPossuiCarteira ? (<img src={recolher} id={"recolher"} onClick={retornar}/>):(<></>)}
       <Box id={"box"}>
         <div>
           <img src={logo} id={"oi"}/>
@@ -502,6 +532,7 @@ const MaintMint = ({ accounts, setAccounts, proximo, setProximo }) => {
 
       </Box>
     </Flex>
+
   );
 };
 
