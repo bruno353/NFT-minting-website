@@ -114,16 +114,25 @@ const MaintMint = ({ accounts, setAccounts, proximo, setProximo }) => {
     })
 
 
-    
+    if (25 - cont < mintAmount && orbName == "ORBE GÊNESIS") {
+      setErroHandler(true)
+      return
+    }
     if (cont < 25 || orbName == "ORBE INTERDIMENSIONAL") {
       if (naoPossuiCarteira == true){
-        chamadaAPINoMetamask()
+        await chamadaAPINoMetamask()
+        return
       }
-      if(naoPossuiCarteira == false){chamadaAPI()}
+      if(naoPossuiCarteira == false){
+      await chamadaAPI()
+      return}
     }
     if(cont == 25 && orbName != "ORBE INTERDIMENSIONAL"){
       setErroHandler(true)
-    }}
+      return
+    }
+
+  }
 
   async function chamadaAPINoMetamask() {
     //e.preventDefault();
@@ -528,7 +537,7 @@ const MaintMint = ({ accounts, setAccounts, proximo, setProximo }) => {
           </Flex>
           </div>
         ) : (
-          <div style={{marginTop: "4%", width: "100%"}}>
+          <div id="botoes" >
           <Button 
           id={"buttonID2"}
           onClick={connectAccount}
